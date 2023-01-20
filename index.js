@@ -1,9 +1,25 @@
-import express from "express";
+import express, { json } from "express";
 import data from "./data/mock.json" assert { type: "json" };
 
 const app = express()
 
 const PORT = 5000;
+//get
+app.get("/",(req,res)=>{
+    res.send("This is the Get request at /")
+})
+//post
+app.post("/create",(req,res)=>{
+    res.send("This is the Post request at /create")
+})
+//put
+app.put("/edit",(req,res)=>{
+    res.send("This is the Put request at /edit")
+})
+//delete
+app.delete("/delete",(req,res)=>{
+    res.send("This is the Delete request at /delete")
+})
 
 app.listen(PORT,()=>{
     console.log(`Our server is running on port ${PORT}!`)
