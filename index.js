@@ -12,6 +12,14 @@ app.use('/images',express.static("images"))
 app.get("/",(req,res)=>{
     res.json(data)
 })
+//get with next
+app.get("/next",(req,res,next)=>{
+    console.log("response will be sent in the next function")
+    next()
+},
+(req,res)=>{
+    res.send("Here is the second callback function.")
+})
 //get with routing Parameters
 app.get("/class/:id",(req,res)=>{
     const studentId = Number(req.params.id);
