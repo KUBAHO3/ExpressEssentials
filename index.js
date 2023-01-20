@@ -46,6 +46,21 @@ app.put("/edit",(req,res)=>{
 app.delete("/delete",(req,res)=>{
     res.send("This is the Delete request at /delete")
 })
+//Chain routing
+app
+  .route("/class")
+  .get((req,res)=>{
+     res.send("retrieving the class route")
+  })
+  .post((req,res)=>{
+     res.send("creating on class route")
+  })
+  .put((req,res)=>{
+     res.send("Updating the class route")
+  })
+  .delete((req,res)=>{
+     res.send("deleting at class route")
+  })
 
 app.listen(PORT,()=>{
     console.log(`Our server is running on port ${PORT}!`)
@@ -58,3 +73,5 @@ app.listen(PORT,()=>{
     //.send(): sends the http response
     //.downoad(): Transfers the file as an attachement
     //.redirect(): Redirects the user to the specified path
+    //And more others at:
+        //https://www.geeksforgeeks.org/express-js-response-complete-reference/
