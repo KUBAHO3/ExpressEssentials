@@ -8,10 +8,18 @@ const PORT = 5000;
 app.use(express.static('public'))
 //using the image folder
 app.use('/images',express.static("images"))
+//using express.json and express.urlencoded
+//app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
 //get
 app.get("/",(req,res)=>{
     res.json(data)
 });
+//post - express.json and express.urlencoded
+app.post("/item", (req, res)=>{
+    console.log(req.body)
+    res.send(req.body)
+})
 //get - download method
 app.get("/download",(req,res)=>{
     res.download("images/road.jpg")
@@ -30,8 +38,8 @@ app.get("/next",(req,res,next)=>{
 })
 //get with routing Parameters
 app.get("/class/:id",(req,res)=>{
-    const studentId = Number(req.params.id);
-    const student = data.filter((student)=>student.id === studentId)
+    const studentId = Number(req.params.id);                            //\
+    const student = data.filter((student)=>student.id === studentId)   //\/\Middlewares
     res.send(student);
 })
 //post
@@ -75,3 +83,8 @@ app.listen(PORT,()=>{
     //.redirect(): Redirects the user to the specified path
     //And more others at:
         //https://www.geeksforgeeks.org/express-js-response-complete-reference/
+
+//Built-In Middleware Functions
+    //express.static: serves static assets
+    //express.json: Parses incoming requests with JSON payloads
+    //express.urlencoded: Parses incoming requests with URL-encoded payloads
