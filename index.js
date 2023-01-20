@@ -4,6 +4,10 @@ import data from "./data/mock.json" assert { type: "json" };
 const app = express()
 
 const PORT = 5000;
+//using public folder in our app
+app.use(express.static('public'))
+//using the image folder
+app.use('/images',express.static("images"))
 //get
 app.get("/",(req,res)=>{
     res.json(data)
