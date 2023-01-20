@@ -11,6 +11,14 @@ app.use('/images',express.static("images"))
 //get
 app.get("/",(req,res)=>{
     res.json(data)
+});
+//get - download method
+app.get("/download",(req,res)=>{
+    res.download("images/road.jpg")
+})
+//get - redirect method
+app.get("/redirect",(req,res)=>{
+    res.redirect("https://www.linkedin.com/in/kubaho-linne-heaven-78ab37208/")
 })
 //get with next
 app.get("/next",(req,res,next)=>{
@@ -43,3 +51,10 @@ app.listen(PORT,()=>{
     console.log(`Our server is running on port ${PORT}!`)
     
 })
+
+
+//common response methods
+    //.json(): send a JSON response
+    //.send(): sends the http response
+    //.downoad(): Transfers the file as an attachement
+    //.redirect(): Redirects the user to the specified path
