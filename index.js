@@ -58,7 +58,8 @@ app.delete("/delete",(req,res)=>{
 app
   .route("/class")
   .get((req,res)=>{
-     res.send("retrieving the class route")
+     //res.send("retrieving the class route")
+     throw new Error();
   })
   .post((req,res)=>{
      res.send("creating on class route")
@@ -69,6 +70,11 @@ app
   .delete((req,res)=>{
      res.send("deleting at class route")
   })
+//error handling
+app.use((err,req,res,next)=>{
+    console.error(err.stack);
+    res.status(500).send("🙄Oops! it's not you, it's us! Please try again...")
+})
 
 app.listen(PORT,()=>{
     console.log(`Our server is running on port ${PORT}!`)
