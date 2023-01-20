@@ -94,3 +94,6 @@ app.listen(PORT,()=>{
     //express.static: serves static assets
     //express.json: Parses incoming requests with JSON payloads
     //express.urlencoded: Parses incoming requests with URL-encoded payloads
+
+//Other third party middlewares
+    //https://expressjs.com/en/resources/middleware.html //explained
