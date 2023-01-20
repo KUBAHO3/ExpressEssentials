@@ -6,7 +6,7 @@ const app = express()
 const PORT = 5000;
 //get
 app.get("/",(req,res)=>{
-    res.send("This is the Get request at /")
+    res.json(data)
 })
 //post
 app.post("/create",(req,res)=>{
