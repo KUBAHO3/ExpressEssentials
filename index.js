@@ -12,6 +12,12 @@ app.use('/images',express.static("images"))
 app.get("/",(req,res)=>{
     res.json(data)
 })
+//get with routing Parameters
+app.get("/class/:id",(req,res)=>{
+    const studentId = Number(req.params.id);
+    const student = data.filter((student)=>student.id === studentId)
+    res.send(student);
+})
 //post
 app.post("/create",(req,res)=>{
     res.send("This is the Post request at /create")
@@ -27,5 +33,5 @@ app.delete("/delete",(req,res)=>{
 
 app.listen(PORT,()=>{
     console.log(`Our server is running on port ${PORT}!`)
-    console.log(data)
+    
 })
