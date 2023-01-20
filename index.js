@@ -9,7 +9,7 @@ app.use(express.static('public'))
 //using the image folder
 app.use('/images',express.static("images"))
 //using express.json and express.urlencoded
-//app.use(express.json())
+//app.use(express.json())  //for express.json
 app.use(express.urlencoded({ extended: true }))
 //get
 app.get("/",(req,res)=>{
