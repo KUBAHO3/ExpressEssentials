@@ -97,3 +97,6 @@ app.listen(PORT,()=>{
 
 //Other third party middlewares
     //https://expressjs.com/en/resources/middleware.html //explained
+
+//Using express with dataBase
+    //https://expressjs.com/en/guide/database-integration.html
